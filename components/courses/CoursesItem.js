@@ -15,11 +15,22 @@ const CourseItem = ({ course }) => {
     const marginCard = 5;
     const cardSize = screenWidth / numColumns - marginCard * numColumns;
 
+    console.log(course);
+
     return (
         <View style={[styles.card, { width: cardSize }]}>
-            <TitleFont style={styles.text} size={20} center>
+            <TitleFont
+                style={styles.text}
+                size={20}
+                center
+                // color={COLORS.accent}
+            >
                 {course?.name}
             </TitleFont>
+            {/* <Image
+                        style={styles.image}
+                        source={{ uri: user.photoURL }}
+                    /> */}
         </View>
     );
 };
@@ -37,7 +48,6 @@ const styles = StyleSheet.create({
     text: {
         textAlign: "center",
         // fontWeight: "600",
-        color: "white",
         // fontSize: 14,
     },
     iconWrapper: {

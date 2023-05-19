@@ -1,11 +1,11 @@
 import { View, Text, Button, TouchableOpacity } from "react-native";
 import { StyleSheet } from "react-native";
-import Colors from "./colors";
+import { COLORS } from "../../constants";
 
 export function PrimaryButton({ children, myColor, size, onPress, outline }) {
     const styles = StyleSheet.create({
         buttonWrapper: {
-            backgroundColor: outline ? "transparent" : Colors.accent,
+            backgroundColor: outline ? "transparent" : COLORS.accent,
             borderRadius: 5,
             paddingVertical: 12,
             paddingHorizontal: 20,
@@ -14,7 +14,7 @@ export function PrimaryButton({ children, myColor, size, onPress, outline }) {
         },
         buttonText: {
             fontFamily: "OpenSans_600SemiBold",
-            color: myColor ? myColor : Colors.bgColor,
+            color: myColor ? myColor : COLORS.bgColor,
             fontSize: size ? size : 16,
         },
     });

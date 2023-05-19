@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     imageWrapper: {
         // position: "absolute",
-        backgroundColor: "white",
+        // backgroundColor: "white",
         borderRadius: 100,
         // transform: [{ translateY: 20 }],
         // padding: 8,

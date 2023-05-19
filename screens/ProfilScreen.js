@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
-import LoginForm from "../components/login/LoginForm";
+import Profil from "../components/profil/Profil";
 import { COLORS } from "../constants";
 
-const LoginScreen = () => {
+const ProfilScreen = () => {
     return (
         <View style={styles.container}>
-            <LoginForm />
+            <Profil />
         </View>
     );
 };
@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: COLORS.bgColor,
         alignItems: "center",
-        justifyContent: "center",
+        // justifyContent: "center",
     },
 });
 
-export default LoginScreen;
+export default ProfilScreen;

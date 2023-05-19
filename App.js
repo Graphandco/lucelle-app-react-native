@@ -22,12 +22,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import CoursesScreen from "./screens/CoursesScreen";
 import DepensesScreen from "./screens/DepensesScreen";
-import LoginScreen from "./screens/LoginScreen";
-import NotesScreen from "./screens/NotesScreen";
+import LoginScreen from "./screens/ProfilScreen";
+import ProfilScreen from "./screens/ProfilScreen";
+import TodoScreen from "./screens/TodoScreen";
 
 import NotesContextProvider from "./context/NotesContext";
 import CoursesContextProvider from "./context/CoursesContext";
 import { AuthContextProvider } from "./context/AuthContext";
+import { COLORS } from "./constants";
 
 const Tab = createBottomTabNavigator();
 const Nav = createNativeStackNavigator();
@@ -68,20 +70,28 @@ export default function App() {
 
     return (
         <>
-            <Header />
-            <StatusBar style="dark" />
-            <View style={styles.container} onLayout={onLayout}></View>
             <AuthContextProvider>
+                <Header />
+                <StatusBar style="dark" />
+                <View style={styles.container} onLayout={onLayout}></View>
                 <CoursesContextProvider>
                     <NotesContextProvider>
                         <NavigationContainer>
                             <Tab.Navigator
                                 screenOptions={{
                                     tabBarInactiveBackgroundColor:
-                                        Colors.bgColor,
-                                    tabBarActiveBackgroundColor: "#1B2335",
-                                    tabBarActiveTintColor: "white",
+                                        COLORS.bgColor,
+                                    tabBarActiveBackgroundColor: COLORS.primary,
+                                    tabBarActiveTintColor: COLORS.accent,
                                     headerShown: false,
+                                    tabBarStyle: {
+                                        height: 60,
+                                        borderTopWidth: 1,
+                                        borderTopColor: COLORS.primary,
+                                    },
+                                    tabBarItemStyle: {
+                                        paddingVertical: 7,
+                                    },
                                 }}
                             >
                                 <Nav.Screen
@@ -112,7 +122,7 @@ export default function App() {
                                 />
                                 <Nav.Screen
                                     name="Notes"
-                                    component={NotesScreen}
+                                    component={TodoScreen}
                                     options={{
                                         tabBarIcon: ({ color, size }) => (
                                             <Octicons
@@ -124,8 +134,8 @@ export default function App() {
                                     }}
                                 />
                                 <Nav.Screen
-                                    name="Login"
-                                    component={LoginScreen}
+                                    name="Profil"
+                                    component={ProfilScreen}
                                     options={{
                                         tabBarIcon: ({ color, size }) => (
                                             <Octicons
@@ -141,9 +151,9 @@ export default function App() {
                         </NavigationContainer>
                     </NotesContextProvider>
                 </CoursesContextProvider>
+                {/* </View> */}
+                {/* <FooterNavigation /> */}
             </AuthContextProvider>
-            {/* </View> */}
-            {/* <FooterNavigation /> */}
         </>
     );
 }
