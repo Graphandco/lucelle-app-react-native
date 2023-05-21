@@ -39,9 +39,13 @@ function CoursesContextProvider({ children }) {
     }, []);
 
     //ADD COURSE
-    const addCourse = async (textCourse) => {
+    const addCourse = async (name, category, imageLink) => {
         await addDoc(collection(db, "shopping"), {
-            content: textCourse,
+            name,
+            category,
+            imageLink,
+            incartforusers: [],
+            tobuyforusers: [],
             createdAt: new Date(),
         });
     };

@@ -5,7 +5,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { BebasNeue_400Regular } from "@expo-google-fonts/bebas-neue";
 import { Ionicons, Octicons } from "@expo/vector-icons";
-import Colors from "./components/ui/colors";
 import {
     OpenSans_300Light,
     OpenSans_400Regular,
@@ -22,7 +21,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import CoursesScreen from "./screens/CoursesScreen";
 import DepensesScreen from "./screens/DepensesScreen";
-import LoginScreen from "./screens/ProfilScreen";
 import ProfilScreen from "./screens/ProfilScreen";
 import TodoScreen from "./screens/TodoScreen";
 
@@ -32,7 +30,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import { COLORS } from "./constants";
 
 const Tab = createBottomTabNavigator();
-const Nav = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
 SplashScreen.preventAutoHideAsync();
 
@@ -94,7 +92,7 @@ export default function App() {
                                     },
                                 }}
                             >
-                                <Nav.Screen
+                                <Tab.Screen
                                     name="Courses"
                                     component={CoursesScreen}
                                     options={{
@@ -107,7 +105,7 @@ export default function App() {
                                         ),
                                     }}
                                 />
-                                <Nav.Screen
+                                <Tab.Screen
                                     name="Dépenses"
                                     component={DepensesScreen}
                                     options={{
@@ -120,7 +118,7 @@ export default function App() {
                                         ),
                                     }}
                                 />
-                                <Nav.Screen
+                                <Tab.Screen
                                     name="Notes"
                                     component={TodoScreen}
                                     options={{
@@ -133,7 +131,7 @@ export default function App() {
                                         ),
                                     }}
                                 />
-                                <Nav.Screen
+                                <Tab.Screen
                                     name="Profil"
                                     component={ProfilScreen}
                                     options={{
@@ -146,7 +144,6 @@ export default function App() {
                                         ),
                                     }}
                                 />
-                                {/* <Stack.Screen name="Depenses" component={DepensesScreen} /> */}
                             </Tab.Navigator>
                         </NavigationContainer>
                     </NotesContextProvider>

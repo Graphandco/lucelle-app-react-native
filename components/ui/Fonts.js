@@ -3,13 +3,14 @@ import { StyleSheet } from "react-native";
 import Colors from "./colors";
 import { COLORS } from "../../constants";
 
-export function TextFont({ children, myColor, size, center }) {
+export function TextFont({ children, myColor, size, center, capitalize }) {
     const styles = StyleSheet.create({
         fontText: {
             fontFamily: "OpenSans_400Regular",
             color: myColor ? myColor : "white",
             fontSize: size ? size : 14,
             textAlign: center ? "center" : "auto",
+            textTransform: capitalize ? "capitalize" : "none",
         },
     });
     return (
@@ -49,12 +50,12 @@ export function TitleH1({ children, myColor, size, center }) {
         </View>
     );
 }
-export function TitleH2({ children, myColor, size, bold }) {
+export function TitleH2({ children, color, size, bold }) {
     const styles = StyleSheet.create({
         fontText: {
             fontFamily: "BebasNeue_400Regular",
             fontWeight: bold ? "bold" : "400",
-            color: myColor ? myColor : COLORS.accent,
+            color: color ? color : COLORS.accent,
             fontSize: size ? size : 38,
         },
     });

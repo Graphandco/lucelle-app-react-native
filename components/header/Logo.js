@@ -1,6 +1,6 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import { TitleH2 } from "../ui/Fonts";
-import { images } from "../../constants";
+import { COLORS, images } from "../../constants";
 
 export default function Logo() {
     return (
@@ -9,7 +9,7 @@ export default function Logo() {
                 <Image style={styles.image} source={images.logo} />
             </View>
             <View style={styles.textWrapper}>
-                <TitleH2 myColor="#0F162A" size={25}>
+                <TitleH2 color={COLORS.bgColor} size={25}>
                     Lucelle'App
                 </TitleH2>
             </View>
